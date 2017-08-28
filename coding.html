@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to display the indicated string after it has been converted to Inflationary English</p>
+
+<div>
+It is wonderful for you to be too good at what you do
+<button onclick="InvertEnglish('It is wonderful for you to be too good at what you do')"> Inflate</button>
+</div>
+<p></p>
+
+<div>
+I ate a burrito after we won our chance to be in the finals
+<button onclick="InvertEnglish('I ate a burrito after we won our chance to be in the finals')">Inflate</button>
+</div>
+<p></p>
+
+<div>
+My neighbor always sics his dog on me
+<button onclick="InvertEnglish('My neighbor always sics his dog on me')"> Inflate</button>
+</div>
+<p></p>
+
+<div id="showMe">
+Results here
+<div id=results>
+</div>
+</div>
+
+<script>
+function capitalizeIt(inString) {
+    return inString.charAt(0).toUpperCase() + inString.slice(1);
+}
+
+function InvertEnglish(inString) {
+    var homonyms=new Array("won","too/to", "for", "sics", "ate");
+    var inversions=new Array("two", "three", "five", "seven", "nine")
+        for (j=0; j < homonyms.length; j++) {
+            var hnyms = homonyms[j].split('/')
+            for(k=0; k < hnyms.length; k++) {
+                var inString = inString.replace(hnyms[k], inversions[j]);
+            }
+        }
+    document.getElementById("results").innerHTML = inString;
+    return;
+}
+</script>
+
+</body>
+</html>
